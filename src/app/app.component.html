@@ -1,0 +1,19 @@
+
+<p>Comunidades:<br>
+  <select [(ngModel)]="comunidadesS">
+    <option *ngFor="let data of jsonData" [ngValue]="data">{{data.label}}</option>
+  </select>
+</p>
+
+<p>Provincias:<br>
+  <select [(ngModel)]="provinciasS" onchange="onComunidadChange()">
+    <option *ngFor="let prov of comunidadesS?.provinces" [ngValue]="prov">{{prov.label}}</option>
+  </select>
+</p>
+
+<p>Localidades:<br>
+  <select [(ngModel)]="townS" onchange="onComunidadChange()">
+    <option *ngFor="let town of provinciasS?.towns" >{{town.label}}</option>
+  </select>
+</p>
+
